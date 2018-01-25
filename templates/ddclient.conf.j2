@@ -1,0 +1,23 @@
+#jinja2: trim_blocks: "true", lstrip_blocks: "false"
+
+daemon={{ ddclient_daemon }}
+pid={{ ddclient_pid }}
+{% if ddclient_ssl is defined %}
+ssl={{ ddclient_ssl }}
+{% endif %}
+{% if ddclient_use is defined %}
+use={{ ddclient_use }}
+{% endif %}
+{% if ddclient_server is defined %}
+server={{ ddclient_server }}
+{% endif %}
+{% if ddclient_protocol is defined %}
+protocol={{ ddclient_protocol }}
+{% endif %}
+{% if ddclient_username is defined %}
+login={{ ddclient_username }}
+{% endif %}
+{% if ddclient_password is defined %}
+password='{{ ddclient_password }}'
+{% endif %}
+{{ ddclient_subdomain }}

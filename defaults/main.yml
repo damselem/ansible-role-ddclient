@@ -1,0 +1,3 @@
+---
+ddclient_daemon: 300
+ddclient_pid: /var/run/ddclient.pid

@@ -1,0 +1,34 @@
+---
+- name: Install dependencies
+  become: True
+  package:
+    name: libio-socket-ssl-perl
+    state: latest
+
+- name: Install package
+  become: True
+  package:
+    name: ddclient
+    state: latest
+
+- name: Create config
+  become: True
+  template:
+    src: ddclient.conf.j2
+    dest: /etc/ddclient.conf
+    mode: 0755
+    force: yes
+
+- name: Create defaults config
+  become: True
+  template:
+    src: ddclient.j2
+    dest: /etc/default/ddclient
+    mode: 0755
+    force: yes
+
+- name: Restart service
+  become: True
+  service:
+    name: ddclient
+    state: restarted
